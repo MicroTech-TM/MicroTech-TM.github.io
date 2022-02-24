@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -87,7 +89,29 @@
             <div onclick="closecontact()"><i class="fas fa-angle-down"></i></div>
             <section>
                 <h2>Youtube Information</h2>
-                <h3><iframe width="853" height="480" src="https://www.youtube.com/embed/OKdKRNWVoXg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></h3>
+                <h2>Subscriber: <div id="subCount"></div></h2>
+                <script>
+                        // Get Subscribers
+                const youtubeKey = 'AIzaSyDcN9lb9OUp_wobgXoh2kvPmRTyjwdhprs';
+                const youtubeUser = 'UCC6EHkdf_tJEDfN2oseiKsg';
+                const subCount = document.getElementById('subCount');
+
+                let getSubscribers = () => {
+
+                fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser}&key=${youtubeKey}`)
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    console.log(data);
+                    subCount.innerHTML = data["items"][0].statistics.subscriberCount;
+                })
+
+                }
+
+                getSubscribers();
+                </script>
+                <h4><iframe width="853" height="480" src="https://www.youtube.com/embed/OKdKRNWVoXg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></h4>
                 <p>
                     <form>
                         <button class="btn_one"><a href="https://www.youtube.com/watch?v=OKdKRNWVoXg">Last Video</a></button>
