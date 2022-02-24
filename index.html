@@ -118,11 +118,11 @@
                                     // Get Subscribers
                             const youtubeKey = 'AIzaSyDcN9lb9OUp_wobgXoh2kvPmRTyjwdhprs';
                             const youtubeUser = 'UCC6EHkdf_tJEDfN2oseiKsg';
-                            const videoId = document.getElementById("videoId").href = href="https://www.youtube.com/watch?v=" + videoId
+                            const Video = document.getElementById("Video").href = "www.youtube.com/watch?v=" + Video
                             //document.getElementById('videoId'); 
                             const delay = 1000; // 10 min
             
-                            let getvideoId = () => {
+                            let getVideo = () => {
             
                             fetch(`https://www.googleapis.com/youtube/v3/search?key=${youtubeKey}&channelId=${youtubeUser}&part=snippet&maxResults=1&order=date&type=video`)
                             .then(response => {
@@ -130,13 +130,13 @@
                             })
                             .then(data => {
                                 console.log(data);
-                                videoId.innerHTML = data["items"][0].id.videoId;
+                                Video.innerHTML = data["items"][0].id.videoId;
                             })
             
                             }
             
                             setInterval(() => {
-                                getvideoId();
+                                getVideo();
                             }, delay);
                             </script>
                             
