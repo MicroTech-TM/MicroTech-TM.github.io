@@ -118,7 +118,6 @@
                                     // Get Subscribers
                             const youtubeKey = 'AIzaSyDcN9lb9OUp_wobgXoh2kvPmRTyjwdhprs';
                             const youtubeUser = 'UCC6EHkdf_tJEDfN2oseiKsg';
-                            document.getElementById("Video").href = "www.youtube.com/watch?v=" + Video
                             const delay = 1000; // 10 min
             
                             let getVideo = () => {
@@ -129,7 +128,7 @@
                             })
                             .then(data => {
                                 console.log(data);
-                                Video.innerHTML = data["items"][0].id.videoId;
+                                Video.innerHTML = "www.youtube.com/watch?v=" + data["items"][0].id.videoId;
                             })
             
                             }
