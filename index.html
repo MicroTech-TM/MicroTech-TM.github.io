@@ -95,7 +95,6 @@
                 const youtubeKey = 'AIzaSyDcN9lb9OUp_wobgXoh2kvPmRTyjwdhprs';
                 const youtubeUser = 'UCC6EHkdf_tJEDfN2oseiKsg';
                 const subCount = document.getElementById('subCount');
-                const videoElement = document.querySelector('.last-video')
                 const delay = 1000; // 10 min
 
                 let getSubscribers = () => {
@@ -114,16 +113,19 @@
                 setInterval(() => {
                     getSubscribers();
                 }, delay);
+                </script>
+                
+                <script> 
+                  const youtubeKey = 'AIzaSyDcN9lb9OUp_wobgXoh2kvPmRTyjwdhprs';
+                  const youtubeUser = 'UCC6EHkdf_tJEDfN2oseiKsg';
+                  const videoElement = document.querySelector('.last-video')
 
-                let getvideoElement = () => {
                   fetch(`https://www.googleapis.com/youtube/v3/search?key=${youtubeKey}&channelId=${youtubeUser}&part=snippet&maxResults=1&order=date&type=video`)
                   .then(response => { return response.json() })
                   .then(data => {
                     videoElement.href = `www.youtube.com/watch?v=${data["items"][0].id.videoId}`
                   })
-                }
                 </script>
-               
 
                 <h4><iframe width="553" height="300" src="https://www.youtube.com/embed/OKdKRNWVoXg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></h4>
                 <p>
